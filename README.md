@@ -30,3 +30,4 @@ complex blocks and modules so even a newcomer can understand what was the target
 * write a new task that you think would be useful for people when learning QML
 
 ## [Task1](task1/README.md)
+## [Task2](task2/README.md)
