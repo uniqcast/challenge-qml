@@ -28,6 +28,7 @@ complex blocks and modules so even a newcomer can understand what was the target
 * find grammatical errors and send a pull request with fixes
 * send pull requests to improve what you think could be better
 * write a new task that you think would be useful for people when learning QML
+* add .gitignore to exclude files that should not be upstream
 
 ## [Task1](task1/README.md)
 ## [Task2](task2/README.md)
