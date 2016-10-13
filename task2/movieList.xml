@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+
+        <item>
+            <imageUrl>images/image1.jpg</imageUrl>
+            <name>Frozen</name>
+            <release>2013</release>
+            <rating>8/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image2.jpg</imageUrl>
+            <name>Iron Man 3</name>
+            <release>2013</release>
+            <rating>8.4/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image3.jpg</imageUrl>
+            <name>War Horse</name>
+            <release>2011</release>
+            <rating>7/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image4.jpg</imageUrl>
+            <name>Guardians of the galaxy</name>
+            <release>2014</release>
+            <rating>8/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image5.jpg</imageUrl>
+            <name>Thor The Dark World</name>
+            <release>2013</release>
+            <rating>9.1/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image6.jpg</imageUrl>
+            <name>Captain America: The Winter Soldier</name>
+            <release>2014</release>
+            <rating>8.7/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image7.jpg</imageUrl>
+            <name>Avengers: Age of Ultron</name>
+            <release>2015</release>
+            <rating>9.0/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image8.jpg</imageUrl>
+            <name>The Good Dinosaur</name>
+            <release>2015</release>
+            <rating>7.3/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image9.jpg</imageUrl>
+            <name>Star Wars: The Force Awakens</name>
+            <release>2015</release>
+            <rating>9.1/10</rating>
+        </item>
+        <item>
+            <imageUrl>images/image10.jpg</imageUrl>
+            <name>The Naked Gun</name>
+            <release>1988</release>
+            <rating>9.6/10</rating>
+        </item>
+
+
+    </channel>
+</rss>
