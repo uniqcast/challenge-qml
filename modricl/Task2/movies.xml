@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <movie>
+    <imagePath>images/1.jpg</imagePath>
+    <movieName>Galaxija</movieName>
+    <movieYear>2015</movieYear>
+    <movieRating>8.2</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/2.jpg</imagePath>
+    <movieName>Thor</movieName>
+    <movieYear>2010</movieYear>
+    <movieRating>4.1</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/3.jpg</imagePath>
+    <movieName>007 Skyfall</movieName>
+    <movieYear>992</movieYear>
+    <movieRating>6.6</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/4.jpg</imagePath>
+    <movieName>Macka u cizmama</movieName>
+    <movieYear>2023</movieYear>
+    <movieRating>1.7</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/5.jpg</imagePath>
+    <movieName>400</movieName>
+    <movieYear>2016</movieYear>
+    <movieRating>5.5</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/6.jpg</imagePath>
+    <movieName>Ribice u moru</movieName>
+    <movieYear>2007</movieYear>
+    <movieRating>6.2</movieRating>
+  </movie>
+  <movie>
+    <imagePath>images/7.jpg</imagePath>
+    <movieName>Neki ljudi u odijelima</movieName>
+    <movieYear>2002</movieYear>
+    <movieRating>7.1</movieRating>
+  </movie>
+</root>
