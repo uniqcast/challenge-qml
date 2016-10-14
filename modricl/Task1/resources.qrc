@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/qml">
         <file>Task1.qml</file>
-        <file>SelectedItem.qml</file>
         <file>SampleListModel.qml</file>
         <file>MovieItem.qml</file>
     </qresource>
