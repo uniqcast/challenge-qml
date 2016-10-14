@@ -7,7 +7,7 @@ Window {
     id: root
     color: "#171717"
     height: Screen.height
-    width: Screen.widthgit
+    width: Screen.width
 
     MovieListModel {
         id: movieModel
