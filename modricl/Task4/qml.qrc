@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ChannelItem.qml</file>
+        <file>channels.xml</file>
+        <file>ionicons.js</file>
+        <file>ionicons.ttf</file>
+    </qresource>
+</RCC>
