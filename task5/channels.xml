@@ -18,7 +18,7 @@
         <icon>logos/logo3</icon>
         <start>9:30</start>
         <end>17:20</end>
-        <url>rtmp://213.202.73.202/iskon/studentska_b2.stream</url>
+        <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Johnny Bravo</uid>
@@ -74,7 +74,7 @@
         <icon>logos/logo4</icon>
         <start>10:30</start>
         <end>18:20</end>
-        <url>rtmp://213.202.73.202/iskon/studentska_b2.stream</url>
+        <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 12</uid>
@@ -130,7 +130,7 @@
         <icon>logos/logo5</icon>
         <start>10:30</start>
         <end>18:20</end>
-        <url>rtmp://213.202.73.202/iskon/studentska_b2.stream</url>
+        <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 20</uid>
@@ -151,7 +151,7 @@
         <icon>logos/logo1</icon>
         <start>6:30</start>
         <end>16:55</end>
-        <url>rtmp://213.202.73.202/iskon/studentska_b2.stream</url>
+        <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 23</uid>
