@@ -14,16 +14,19 @@ ApplicationWindow {
     color: "#292929"
     width: Screen.width
     height: Screen.height
-    visibility: "FullScreen"
+    //    visibility: "FullScreen"
 
     FontLoader { id: ioniconsFont; source: "ionicons.ttf" }
 
+    property bool buttonVisible: true
+
     Timer {
         id: buttonTimer
-        interval: 5000;
+        interval: 5000
         onTriggered: {
-            expandButton.visible = false
-            triggerButton.visible = false
+
+            buttonVisible = false
+
         }
     }
 
@@ -37,18 +40,15 @@ ApplicationWindow {
             boundsBehavior: Flickable.StopAtBounds
             delegate: ChannelItem {}
             orientation: ListView.Vertical
-            interactive: true
             focus: true
             highlightMoveVelocity: 1000
             highlightMoveDuration: 100
             cacheBuffer: 3
             onCurrentItemChanged: {
                 mediaplayer.source = channelListView.currentItem.channelUrl
-                expandButton.visible = true
-                triggerButton.visible = true
-                buttonTimer.restart();
+                buttonVisible = true
+                buttonTimer.restart()
             }
-            spacing: -root.width / 800
         }
     }
 
@@ -60,19 +60,21 @@ ApplicationWindow {
 
         MediaPlayer {
             id: mediaplayer
-            source: ""
             autoPlay: true
         }
+
         VideoOutput {
             id: videoOutput
             anchors.fill: parent
             source: mediaplayer
             fillMode: VideoOutput.PreserveAspectFit
         }
+
         Button {
             id: triggerButton
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.centerIn: parent
+            visible: buttonVisible
+            z: 1
             style: ButtonStyle {
                 label: Text {
                     color: "#ffffff"
@@ -82,24 +84,25 @@ ApplicationWindow {
                     style: Text.Outline
                     styleColor: "black"
                 }
-                background: Rectangle {
-                    color:"transparent"
-                }
+                background: Item {}
             }
-            z: 100
-            MouseArea
-            {
+
+
+            MouseArea {
                 preventStealing: true
                 anchors.fill: parent
                 onClicked: mediaplayer.playbackState == MediaPlayer.PlayingState ? mediaplayer.pause() : mediaplayer.play()
             }
         }
+
         Button {
             id: expandButton
             anchors.bottom: videoArea.bottom
             anchors.bottomMargin: videoArea.height * 0.05
             anchors.right: videoArea.right
             anchors.rightMargin: videoArea.height * 0.05
+            visible: buttonVisible
+            z: 1
             style: ButtonStyle {
                 label: Text {
                     color: "#ffffff"
@@ -109,13 +112,10 @@ ApplicationWindow {
                     style: Text.Outline
                     styleColor: "black"
                 }
-                background: Rectangle {
-                    color:"transparent"
-                }
+                background: Item {}
             }
-            z: 100
-            MouseArea
-            {
+
+            MouseArea {
                 preventStealing: true
                 anchors.fill: parent
                 onClicked: {
@@ -123,6 +123,7 @@ ApplicationWindow {
                 }
             }
         }
+
         states: [
             State {
                 name: "expanded"; when: videoArea.expanded
@@ -134,25 +135,25 @@ ApplicationWindow {
             State {
                 name: "landscape"; when: (Screen.width > Screen.height)
                 PropertyChanges { target: channelList; width: parent.width  * 0.35; height: parent.height; anchors.left: parent.left; anchors.top: parent.top }
-                PropertyChanges { target: videoArea; width: parent.width * 0.65; height: parent.height; anchors.right: parent.right; anchors.top: parent.top}
+                PropertyChanges { target: videoArea; width: parent.width * 0.65; height: parent.height; anchors.right: parent.right; anchors.top: parent.top }
             },
             State {
                 name: "portrait"; when: (Screen.width < Screen.height)
                 PropertyChanges { target: channelList; width: parent.width; height: parent.height; anchors.left: parent.left; anchors.top: videoArea.bottom }
-                PropertyChanges { target: videoArea; width: parent.width; height: (parent.width / 16) * 9; anchors.right: parent.right; anchors.top: parent.top}
+                PropertyChanges { target: videoArea; width: parent.width; height: (parent.width / 16) * 9; anchors.right: parent.right; anchors.top: parent.top }
             }
         ]
-        MouseArea
-        {
+
+        MouseArea {
             preventStealing: true
             anchors.fill: parent
             onClicked: {
-                expandButton.visible = true
-                triggerButton.visible = true
-                buttonTimer.restart();
+                buttonVisible = true
+                buttonTimer.restart()
             }
         }
     }
+
     XmlListModel {
         id: xmlModel
         source: "channels.xml"
