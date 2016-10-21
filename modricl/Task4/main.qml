@@ -24,9 +24,7 @@ ApplicationWindow {
         id: buttonTimer
         interval: 5000
         onTriggered: {
-
             buttonVisible = false
-
         }
     }
 
@@ -126,10 +124,7 @@ ApplicationWindow {
         states: [
             State {
                 name: "expanded"; when: videoArea.expanded
-                PropertyChanges {
-                    target: videoArea
-                    anchors.fill: parent
-                }
+                PropertyChanges { target: videoArea; anchors.fill: parent }
             },
             State {
                 name: "landscape"; when: (root.width > root.height)
