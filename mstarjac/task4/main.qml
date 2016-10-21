@@ -8,12 +8,12 @@ import "ionicons.js" as Ionicons
 
 ApplicationWindow {
     visible: true
-    width: 800//Screen.width
-    height: 680//Screen.height
-    title: qsTr("Hello World")
+    width: Screen.width
+    height: Screen.height
+    title: qsTr("Task5")
     id: mainWindow
     color: "#000"
-    //visibility: "FullScreen"
+    visibility: "FullScreen"
 
     XmlListModel{
         id: listModel
