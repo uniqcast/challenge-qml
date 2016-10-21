@@ -87,7 +87,6 @@ ApplicationWindow {
                 background: Item {}
             }
 
-
             MouseArea {
                 preventStealing: true
                 anchors.fill: parent
@@ -133,12 +132,12 @@ ApplicationWindow {
                 }
             },
             State {
-                name: "landscape"; when: (Screen.width > Screen.height)
+                name: "landscape"; when: (root.width > root.height)
                 PropertyChanges { target: channelList; width: parent.width  * 0.35; height: parent.height; anchors.left: parent.left; anchors.top: parent.top }
                 PropertyChanges { target: videoArea; width: parent.width * 0.65; height: parent.height; anchors.right: parent.right; anchors.top: parent.top }
             },
             State {
-                name: "portrait"; when: (Screen.width < Screen.height)
+                name: "portrait"; when: (root.width < root.height)
                 PropertyChanges { target: channelList; width: parent.width; height: parent.height; anchors.left: parent.left; anchors.top: videoArea.bottom }
                 PropertyChanges { target: videoArea; width: parent.width; height: (parent.width / 16) * 9; anchors.right: parent.right; anchors.top: parent.top }
             }
