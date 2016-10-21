@@ -1,0 +1,16 @@
+<!DOCTYPE RCC><RCC version="1.0">
+
+<qresource>
+    <file>qml_task1.qmlproject</file>    
+    <file>qml_task1.qml</file>    
+</qresource>
+
+<qresource>
+    <file>img/hobbit.jpg</file>
+    <file>img/ride_along.jpg</file>
+    <file>img/son_of_god.jpg</file>
+    <file>img/tarzan.jpg</file>
+    <file>img/wolf_of_wall_street.jpg</file>  
+</qresource>
+
+</RCC>
