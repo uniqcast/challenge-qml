@@ -111,6 +111,7 @@ ApplicationWindow {
             width: root.width/3
             height: root.height
             anchors.left: root.left
+            anchors.top: root.top
             color: "#000"
 
             ListView{
@@ -132,6 +133,7 @@ ApplicationWindow {
             width: root.width-listContainer.width
             height: videoplayer.height
             anchors.right: root.right
+            anchors.top: root.top
             color: "#000"
             id: videoWrap
             Item{
