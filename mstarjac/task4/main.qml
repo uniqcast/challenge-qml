@@ -10,7 +10,7 @@ ApplicationWindow {
     visible: true
     width: Screen.width
     height: Screen.height
-    title: qsTr("Task5")
+    title: qsTr("Task4")
     id: mainWindow
     color: "#000"
     visibility: "FullScreen"
