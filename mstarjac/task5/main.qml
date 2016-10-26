@@ -223,14 +223,45 @@ ApplicationWindow {
                         text: appWrap.muted ? Ionicons.img["volume-mute"] : Ionicons.img["volume-medium"]
                         font.pixelSize: video.height*0.1
                         leftPadding: 15
-                        bottomPadding: 30
+                        topPadding: 15
                         anchors.left: video.left
-                        anchors.bottom: video.bottom
+                        anchors.top: video.top
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                player.volume = appWrap.muted ? 1 : 0
+
                                 appWrap.muted = !appWrap.muted
+                                volumeSlider.value = appWrap.muted ? 0 : 0.5
+                            }
+                        }
+                        Slider{
+                            id: volumeSlider
+                            width: 100
+                            height: 5
+                            from:0.0
+                            to:1.0
+                            value: 0.5
+                            stepSize: 0.1
+                            anchors.left: parent.left
+                            anchors.top:muteButton.bottom
+                            anchors.leftMargin: 5
+                            background: Rectangle{
+                                color: "white"
+                                radius: 2
+                            }
+                            handle: Rectangle {
+                                    x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
+                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height/1.5
+                                    implicitWidth: volumeSlider.height*3
+                                    implicitHeight: volumeSlider.height*3
+                                    radius: 3
+                                    color: volumeSlider.pressed ? "#f0f0f0" : "#f6f6f6"
+                                    border.color: "#bdbebf"
+                                }
+
+                            onValueChanged: {
+                                player.volume = value;
+                                appWrap.muted = volumeSlider.value == 0 ? true : false
                             }
                         }
                     }
@@ -320,19 +351,19 @@ ApplicationWindow {
                             anchors.bottom: parent.bottom
 
                             background: Rectangle {
-                                    color: "#909090"
-                                }
+                                color: "#909090"
+                            }
 
                             contentItem: Item {
-                                    implicitWidth: background.implicitWidth
-                                    implicitHeight: background.implicitHeight
+                                implicitWidth: background.implicitWidth
+                                implicitHeight: background.implicitHeight
 
-                                    Rectangle {
-                                        width: progress.position*progress.width
-                                        height: parent.height
-                                        color: "#ff5a5e"
-                                    }
+                                Rectangle {
+                                    width: progress.position*progress.width
+                                    height: parent.height
+                                    color: "#ff5a5e"
                                 }
+                            }
 
 
                             Text {
