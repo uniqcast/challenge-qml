@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>logos/logo1.png</file>
+        <file>logos/logo2.png</file>
+        <file>logos/logo3.png</file>
+        <file>logos/logo4.png</file>
+        <file>logos/logo5.png</file>
+        <file>logos/logo6.png</file>
+        <file>logos/logo7.png</file>
+        <file>channels.xml</file>
+        <file>LlistDelegate.qml</file>
+        <file>TopBar.qml</file>
+        <file>ionicons.js</file>
+        <file>fonts/ionicons.ttf</file>
+        <file>Search.qml</file>
+        <file>progressCalc.js</file>
+    </qresource>
+</RCC>
