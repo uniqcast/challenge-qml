@@ -13,7 +13,7 @@ ApplicationWindow {
     color: "#292929"
     width: Screen.width
     height: Screen.height
-    //    visibility: "FullScreen"
+    visibility: "FullScreen"
     header: TopBar{}
 
     FontLoader { id: ioniconsFont; source: "ionicons.ttf" }
