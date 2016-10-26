@@ -4,8 +4,8 @@ import QtQuick.Controls 2.0
 
 ApplicationWindow {
     visible: true
-    width: 640 //Screen.width
-    height: 480 //Screen.height
+    width: Screen.width
+    height: Screen.height
     title: qsTr("Task5")
     id: searchWindow
 }

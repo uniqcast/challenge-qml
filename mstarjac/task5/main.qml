@@ -10,11 +10,11 @@ import "progressCalc.js" as Timecalc
 
 ApplicationWindow {
     visible: true
-    width: 640//Screen.width
-    height: 480//Screen.height
+    width: Screen.width
+    height: Screen.height
     title: qsTr("Task5")
     id: appWrap
-    //visibility: "FullScreen"
+    visibility: "FullScreen"
     color: "#000"
 
     XmlListModel{
@@ -35,7 +35,6 @@ ApplicationWindow {
     property bool expanded: false
     property bool muted: false
     property date date
-
 
     StackView {
         id: stack
