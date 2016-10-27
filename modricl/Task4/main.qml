@@ -1,7 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 1.5
 import QtQuick.Controls.Styles 1.4
-import QtQuick.Window 2.0
+import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.XmlListModel 2.0
@@ -9,12 +9,12 @@ import QtMultimedia 5.5
 import "ionicons.js" as Ionicons
 
 ApplicationWindow {
-    visible: true
     id: root
-    color: "#292929"
-    width: Screen.width
+    visible: true
     height: Screen.height
+    width: Screen.width
     visibility: "FullScreen"
+    color: "#171717"
 
     FontLoader { id: ioniconsFont; source: "ionicons.ttf" }
 
@@ -70,8 +70,8 @@ ApplicationWindow {
 
         Button {
             id: triggerButton
-            anchors.centerIn: parent
             visible: buttonVisible
+            anchors.centerIn: parent
             z: 1
             style: ButtonStyle {
                 label: Text {
@@ -94,11 +94,11 @@ ApplicationWindow {
 
         Button {
             id: expandButton
+            visible: buttonVisible
             anchors.bottom: videoArea.bottom
             anchors.bottomMargin: videoArea.height * 0.05
             anchors.right: videoArea.right
             anchors.rightMargin: videoArea.height * 0.05
-            visible: buttonVisible
             z: 1
             style: ButtonStyle {
                 label: Text {
@@ -124,7 +124,7 @@ ApplicationWindow {
         states: [
             State {
                 name: "expanded"; when: videoArea.expanded
-                PropertyChanges { target: videoArea; anchors.fill: parent }
+                PropertyChanges { target: videoArea; width: root.width; height: root.height; anchors.centerIn: parent }
             },
             State {
                 name: "landscape"; when: (root.width > root.height)

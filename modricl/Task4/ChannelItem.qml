@@ -1,4 +1,4 @@
-import QtQuick 2.6
+import QtQuick 2.7
 
 Rectangle {
     id: channelItem
@@ -10,16 +10,16 @@ Rectangle {
 
     Text {
         id: nameText
-        color: parent.ListView.isCurrentItem ? "red" : "white"
-        font.pixelSize: channelItem.width / 30
-        text: uid
         anchors.centerIn: parent
+        font.pixelSize: channelItem.width / 30
+        color: parent.ListView.isCurrentItem ? "red" : "white"
+        text: uid
     }
 
     Rectangle {
-     width: parent.width
-     height: 2
-     color: "white"
+        width: parent.width
+        height: 2
+        color: "white"
     }
 
     MouseArea {
