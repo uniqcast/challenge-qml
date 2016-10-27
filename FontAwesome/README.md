@@ -25,7 +25,7 @@ Now to use the font you simply write it like this:
     }
 ```
 NOTE: ```font.family``` has to be specified, in this case we use the font name from the FontLoader.  
-```fa-thumbs-up``` will show the Thumbs up icon, for full list visit [Font Awesome Icons](http://fontawesome.io/icons/). Some of the values are removed from the ```awesome.js``` as they display the same icon (for example fa-photo,fa-image,fa-picture-o, only ```fa-image``` available in the ```awesome.js```)  
+```fa-thumbs-up``` will show the Thumbs up icon, for full list visit [Font Awesome Icons](http://fontawesome.io/icons/). Some of the values are removed from the ```awesome.js``` as they display the same icon (for example fa-photo,fa-image,fa-picture-o, only ```fa-image``` is available in the ```awesome.js```)  
 
 For more info check the project
 
