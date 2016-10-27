@@ -44,6 +44,7 @@ ToolBar {
                     id: searchIcon
                     color: "#e9e9e9"
                     text: Ionicons.img["search"]
+                    font.family: loader.name
                     font.pointSize: 18
                     rightPadding: 30
                     anchors.verticalCenter: parent.verticalCenter
@@ -56,6 +57,7 @@ ToolBar {
                     id: backIcon
                     color: "#e9e9e9"
                     text: Ionicons.img["arrow-return-left"]
+                    font.family: loader.name
                     anchors.left: searchIcon.right
                     font.pointSize: 18
                     anchors.verticalCenter: parent.verticalCenter

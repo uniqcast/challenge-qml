@@ -30,7 +30,7 @@ ApplicationWindow {
 
     header: TopBar{}
 
-    FontLoader { source: "fonts/ionicons.ttf" }
+    FontLoader { source: "fonts/ionicons.ttf"; id:loader }
 
     property bool expanded: false
     property bool muted: false
@@ -135,6 +135,7 @@ ApplicationWindow {
                             anchors.right: ppbutton.left
                             rightPadding: video.width*0.15
                             text: Ionicons.img["reply"]
+                            font.family: loader.name
                             MouseArea{
                                 anchors.fill: parent
                                 onClicked:{
@@ -151,6 +152,7 @@ ApplicationWindow {
                             color: "#FFF"
                             anchors.verticalCenter: parent.verticalCenter
                             text: player.playbackState == MediaPlayer.PlayingState ? Ionicons.img["pause"] : Ionicons.img["play"]
+                            font.family: loader.name
                             MouseArea{
                                 anchors.fill: parent
                                 onClicked:{if(player.playbackState == MediaPlayer.PlayingState){
@@ -168,6 +170,7 @@ ApplicationWindow {
                             id: stopButton
                             color: "#e9e9e9"
                             text: Ionicons.img["stop"]
+                            font.family: loader.name
                             font.pixelSize: video.height*0.1
                             leftPadding: video.width*0.15
                             anchors.verticalCenter: parent.verticalCenter
@@ -206,6 +209,7 @@ ApplicationWindow {
                         anchors.top: video.top
                         id: fscreen
                         font.pixelSize: video.height*0.1
+                        font.family: loader.name
                         text:  gridlayout.state == "FULLSCREEN" ? Ionicons.img['android-contract'] : Ionicons.img['arrow-expand']
                         topPadding: 15
                         rightPadding: 10
@@ -221,6 +225,7 @@ ApplicationWindow {
                         id: muteButton
                         color: "#e9e9e9"
                         text: appWrap.muted ? Ionicons.img["volume-mute"] : Ionicons.img["volume-medium"]
+                        font.family: loader.name
                         font.pixelSize: video.height*0.1
                         leftPadding: 15
                         topPadding: 15
@@ -302,6 +307,7 @@ ApplicationWindow {
                             Text {
                                 id: rightArrow
                                 text: Ionicons.img["android-arrow-dropup"]
+                                font.family: loader.name
                                 color: "#909090"
                                 font.pixelSize: 50
                             }
@@ -333,6 +339,7 @@ ApplicationWindow {
                             Text {
                                 id: leftArrow
                                 text: Ionicons.img["android-arrow-dropup"]
+                                font.family: loader.name
                                 color: "#ff5a5e"
                                 font.pixelSize: 50
                                 anchors.right: leftArrowWrapp.right
@@ -373,6 +380,7 @@ ApplicationWindow {
                                 anchors.horizontalCenterOffset: progress.position*progress.width
                                 anchors.verticalCenter: progress.verticalCenter
                                 text: Ionicons.img["record"]
+                                font.family: loader.name
                                 font.pixelSize: progressBar.height*3
 
                             }
