@@ -1,10 +1,9 @@
-import QtQuick 2.6
+import QtQuick 2.7
 import QtGraphicalEffects 1.0
 
 Rectangle {
     id: movieItem
     width: (movieListView.width / (movieListView.width > 300 ? 5 : 3)) - movieListView.spacing
-    color: "#00000000"
     height: imageItem.height
     scale: ListView.isCurrentItem ? 1 : 0.9
     Behavior on scale { NumberAnimation { duration: 200 } }
@@ -13,30 +12,26 @@ Rectangle {
         id: imageItem
         width: movieItem.width
         fillMode: Image.PreserveAspectFit
-        anchors.left: parent.left
         source: imagePath
     }
 
     Text {
         id: nameText
-        color: "#ffffff"
-        anchors.left: imageItem.left
-        anchors.leftMargin: 0
-        font.pixelSize: movieItem.width / 10
-        text: movieName
         anchors.top: imageItem.bottom
         anchors.topMargin: movieItem.width / 35
+        font.pixelSize: movieItem.width / 10
+        color: "#ffffff"
+        text: movieName
     }
 
     Text {
         id: yearText
-        color: "#ffffff"
-        text: movieYear
-        anchors.left: imageItem.left
-        anchors.leftMargin: 0
+
         anchors.top: nameText.bottom
         anchors.topMargin: movieItem.width / 50
         font.pixelSize: movieItem.width / 15
+        color: "#ffffff"
+        text: movieYear
     }
 
 
@@ -53,21 +48,20 @@ Rectangle {
 
     Text {
         id: ratingText
-        color: "#ffffff"
-        text: movieRating
-        anchors.horizontalCenter: imageItem.horizontalCenter
-        anchors.verticalCenter: imageItem.verticalCenter
+        visible: movieItem.focus ? true : false
+        anchors.centerIn: parent
         font.pixelSize: imageItem.width / 5
         style: Text.Outline
         styleColor: "black"
-        visible: movieItem.focus ? true : false
+        color: "#ffffff"
+        text: movieRating
     }
 
     MouseArea {
         id: mouseArea
-        anchors.fill: movieItem
+        anchors.fill: parent
         hoverEnabled: true
-        onClicked: {
+        onEntered: {
             movieListView.currentIndex = index
         }
     }
