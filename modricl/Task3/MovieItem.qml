@@ -1,12 +1,12 @@
-import QtQuick 2.6
+import QtQuick 2.7
 import QtGraphicalEffects 1.0
 
 Rectangle {
     id: movieItem
     width: movieGridView.cellWidth - 5
-    color: "#00000000"
     height: movieGridView.cellHeight - 5
     opacity: movieItem.focus ? 1 : 0.5
+    color: "#00000000"
 
     Image {
         id: imageItem
@@ -19,9 +19,12 @@ Rectangle {
     }
 
     Rectangle {
-        color: "#000"
+        id: nameTextContainer
+        width: childrenRect.width * 1.2
+        height: childrenRect.height
         anchors.left: imageItem.left
         anchors.bottom: imageItem.bottom
+        color: "#000"
         z: 10
         Text {
             id: nameText
@@ -32,19 +35,17 @@ Rectangle {
             leftPadding: movieItem.width / 50
             elide: Text.ElideRight
         }
-        width: childrenRect.width * 1.2
-        height: childrenRect.height
     }
 
     Text {
         id: yearText
-        color: "#ffffff"
-        text: Qt.formatDateTime(new Date(release_date), "yyyy")
         anchors.right: imageItem.right
         anchors.rightMargin: movieItem.width / 50
         anchors.bottom: movieItem.bottom
         anchors.bottomMargin: movieItem.width / 35
         font.pixelSize: movieItem.width / 18
+        color: "#ffffff"
+        text: Qt.formatDateTime(new Date(release_date), "yyyy")
     }
 
     DropShadow {
@@ -60,13 +61,13 @@ Rectangle {
 
     Text {
         id: ratingText
-        color: "#ffffff"
-        text: vote_average
         anchors.bottom: movieItem.bottom
         anchors.bottomMargin: movieItem.width / 35
         anchors.left: imageItem.left
         anchors.leftMargin: movieItem.width / 50
         font.pixelSize: imageItem.width / 18
+        color: "#ffffff"
+        text: vote_average
     }
 
     MouseArea {

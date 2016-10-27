@@ -1,14 +1,14 @@
-import QtQuick 2.6
-import QtQuick.Window 2.0
+import QtQuick 2.7
+import QtQuick.Window 2.2
 import QtQuick.XmlListModel 2.0
 
 Window {
-
-    visible: true
     id: root
-    color: "#171717"
-    width: Screen.width
+    visible: true
     height: Screen.height
+    width: Screen.width
+    visibility: "FullScreen"
+    color: "#171717"
     Component.onCompleted: {
         getData();
     }
@@ -22,11 +22,11 @@ Window {
         cellHeight: movieGridView.cellWidth
         focus: true
         model: listModelJson
+        interactive: true
         delegate: MovieItem {}
         highlight: Component {
             SelectedItem {}
         }
-        interactive: true
     }
 
     function getData() {
