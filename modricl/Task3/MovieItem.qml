@@ -1,14 +1,16 @@
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
 
-Rectangle {
+Rectangle
+{
     id: movieItem
     width: movieGridView.cellWidth - 5
     height: movieGridView.cellHeight - 5
     opacity: movieItem.focus ? 1 : 0.5
     color: "#00000000"
 
-    Image {
+    Image
+    {
         id: imageItem
         width: movieItem.width
         height: movieItem.height * 0.88
@@ -18,7 +20,8 @@ Rectangle {
         opacity: movieItem.focus ? 1 : 0.5
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: nameTextContainer
         width: childrenRect.width * 1.2
         height: childrenRect.height
@@ -26,7 +29,8 @@ Rectangle {
         anchors.bottom: imageItem.bottom
         color: "#000"
         z: 10
-        Text {
+        Text
+        {
             id: nameText
             color: "#ffffff"
             font.pixelSize: movieItem.width / 15
@@ -37,7 +41,8 @@ Rectangle {
         }
     }
 
-    Text {
+    Text
+    {
         id: yearText
         anchors.right: imageItem.right
         anchors.rightMargin: movieItem.width / 50
@@ -48,7 +53,8 @@ Rectangle {
         text: Qt.formatDateTime(new Date(release_date), "yyyy")
     }
 
-    DropShadow {
+    DropShadow
+    {
         id: shadowItem
         anchors.fill: imageItem
         horizontalOffset: movieItem.width / 100
@@ -59,7 +65,8 @@ Rectangle {
         source: imageItem
     }
 
-    Text {
+    Text
+    {
         id: ratingText
         anchors.bottom: movieItem.bottom
         anchors.bottomMargin: movieItem.width / 35
@@ -70,9 +77,11 @@ Rectangle {
         text: vote_average
     }
 
-    MouseArea {
+    MouseArea
+    {
         anchors.fill: movieItem
-        onClicked: {
+        onClicked:
+        {
             movieGridView.currentIndex = index
         }
     }

@@ -2,20 +2,23 @@ import QtQuick 2.7
 import QtQuick.Window 2.2
 import QtQuick.XmlListModel 2.0
 
-Window {
+Window
+{
     id: root
     visible: true
     height: Screen.height
     width: Screen.width
     visibility: "FullScreen"
     color: "#171717"
-    Component.onCompleted: {
+    Component.onCompleted:
+    {
         getData();
     }
 
-    ListModel { id: listModelJson }
+    ListModel {id: listModelJson}
 
-    GridView {
+    GridView
+    {
         id: movieGridView
         anchors.fill: parent
         cellWidth: (root.width / (root.width > 300 ? 5 : 3))
@@ -24,16 +27,17 @@ Window {
         model: listModelJson
         interactive: true
         delegate: MovieItem {}
-        highlight: Component {
-            SelectedItem {}
-        }
+        highlight: Component { SelectedItem {} }
     }
 
-    function getData() {
+    function getData()
+    {
         var xmlhttp = new XMLHttpRequest();
         var url = "https://api.themoviedb.org/4/list/1";
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+        xmlhttp.onreadystatechange=function()
+        {
+            if(xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status === 200)
+            {
                 dataHandler(xmlhttp.responseText);
             }
         }
@@ -42,15 +46,18 @@ Window {
         xmlhttp.send();
     }
 
-    function dataHandler(response) {
+    function dataHandler(response)
+    {
         var arr = JSON.parse(response);
-        for(var i = 0; i < arr.results.length; i++) {
-            listModelJson.append( {"poster_path" : arr.results[i].poster_path,
-                                     "backdrop_path" : arr.results[i].backdrop_path,
-                                     "original_title" : arr.results[i].original_title,
-                                     "vote_average" : arr.results[i].vote_average,
-                                     "release_date" : arr.results[i].release_date
-                                 })
+        for(var i = 0; i < arr.results.length; i++)
+        {
+            listModelJson.append(
+                        {"poster_path" : arr.results[i].poster_path,
+                            "backdrop_path" : arr.results[i].backdrop_path,
+                            "original_title" : arr.results[i].original_title,
+                            "vote_average" : arr.results[i].vote_average,
+                            "release_date" : arr.results[i].release_date
+                        });
         }
     }
 }
