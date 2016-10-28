@@ -8,7 +8,8 @@ import QtQuick.XmlListModel 2.0
 import QtMultimedia 5.5
 import "ionicons.js" as Ionicons
 
-ApplicationWindow {
+ApplicationWindow
+{
     id: root
     visible: true
     height: Screen.height
@@ -20,18 +21,22 @@ ApplicationWindow {
 
     property bool buttonVisible: true
 
-    Timer {
+    Timer
+    {
         id: buttonTimer
         interval: 5000
-        onTriggered: {
+        onTriggered:
+        {
             buttonVisible = false
         }
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: channelList
 
-        ListView {
+        ListView
+        {
             id: channelListView
             anchors.fill: parent
             model: xmlModel
@@ -42,7 +47,8 @@ ApplicationWindow {
             highlightMoveVelocity: 1000
             highlightMoveDuration: 100
             cacheBuffer: 3
-            onCurrentItemChanged: {
+            onCurrentItemChanged:
+            {
                 mediaplayer.source = channelListView.currentItem.channelUrl
                 buttonVisible = true
                 buttonTimer.restart()
@@ -50,31 +56,37 @@ ApplicationWindow {
         }
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: videoArea
         color: "#292929"
 
         property bool expanded: false
 
-        MediaPlayer {
+        MediaPlayer
+        {
             id: mediaplayer
             autoPlay: true
         }
 
-        VideoOutput {
+        VideoOutput
+        {
             id: videoOutput
             anchors.fill: parent
             source: mediaplayer
             fillMode: VideoOutput.PreserveAspectFit
         }
 
-        Button {
+        Button
+        {
             id: triggerButton
             visible: buttonVisible
             anchors.centerIn: parent
             z: 1
-            style: ButtonStyle {
-                label: Text {
+            style: ButtonStyle
+            {
+                label: Text
+                {
                     color: "#ffffff"
                     font.family: "Ionicons"
                     text: mediaplayer.playbackState == 1 ? Ionicons.img['pause'] : Ionicons.img['play']
@@ -85,14 +97,16 @@ ApplicationWindow {
                 background: Item {}
             }
 
-            MouseArea {
+            MouseArea
+            {
                 preventStealing: true
                 anchors.fill: parent
                 onClicked: mediaplayer.playbackState == MediaPlayer.PlayingState ? mediaplayer.pause() : mediaplayer.play()
             }
         }
 
-        Button {
+        Button
+        {
             id: expandButton
             visible: buttonVisible
             anchors.bottom: videoArea.bottom
@@ -100,8 +114,10 @@ ApplicationWindow {
             anchors.right: videoArea.right
             anchors.rightMargin: videoArea.height * 0.05
             z: 1
-            style: ButtonStyle {
-                label: Text {
+            style: ButtonStyle
+            {
+                label: Text
+                {
                     color: "#ffffff"
                     font.family: "Ionicons"
                     text: videoArea.expanded == true ? Ionicons.img['arrow-shrink'] : Ionicons.img['arrow-expand']
@@ -112,43 +128,52 @@ ApplicationWindow {
                 background: Item {}
             }
 
-            MouseArea {
+            MouseArea
+            {
                 preventStealing: true
                 anchors.fill: parent
-                onClicked: {
+                onClicked:
+                {
                     videoArea.expanded = !videoArea.expanded
                 }
             }
         }
 
-        states: [
-            State {
+        states:
+        [
+            State
+            {
                 name: "expanded"; when: videoArea.expanded
                 PropertyChanges { target: videoArea; width: root.width; height: root.height; anchors.centerIn: parent }
             },
-            State {
+            State
+            {
                 name: "landscape"; when: (root.width > root.height)
                 PropertyChanges { target: channelList; width: parent.width  * 0.35; height: parent.height; anchors.left: parent.left; anchors.top: parent.top }
                 PropertyChanges { target: videoArea; width: parent.width * 0.65; height: parent.height; anchors.right: parent.right; anchors.top: parent.top }
             },
-            State {
+            State
+            {
                 name: "portrait"; when: (root.width < root.height)
                 PropertyChanges { target: channelList; width: parent.width; height: parent.height; anchors.left: parent.left; anchors.top: videoArea.bottom }
                 PropertyChanges { target: videoArea; width: parent.width; height: (parent.width / 16) * 9; anchors.right: parent.right; anchors.top: parent.top }
             }
         ]
 
-        MouseArea {
+        MouseArea
+        {
             preventStealing: true
             anchors.fill: parent
-            onClicked: {
+            onClicked:
+            {
                 buttonVisible = true
                 buttonTimer.restart()
             }
         }
     }
 
-    XmlListModel {
+    XmlListModel
+    {
         id: xmlModel
         source: "channels.xml"
         query: "/channels/channel"

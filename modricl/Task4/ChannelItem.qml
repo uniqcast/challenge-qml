@@ -1,6 +1,7 @@
 import QtQuick 2.7
 
-Rectangle {
+Rectangle
+{
     id: channelItem
     width: parent.width
     height: nameText.height * 5
@@ -8,7 +9,8 @@ Rectangle {
 
     property string channelUrl: url
 
-    Text {
+    Text
+    {
         id: nameText
         anchors.centerIn: parent
         font.pixelSize: channelItem.width / 30
@@ -16,17 +18,20 @@ Rectangle {
         text: uid
     }
 
-    Rectangle {
+    Rectangle
+    {
         width: parent.width
         height: 2
         color: "white"
     }
 
-    MouseArea {
+    MouseArea
+    {
         id: mouseArea
         anchors.fill: channelItem
         hoverEnabled: true
-        onClicked: {
+        onClicked:
+        {
             channelListView.currentIndex = index
         }
     }
