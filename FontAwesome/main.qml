@@ -4,42 +4,50 @@ import QtQuick.Controls 2.0
 import QtQuick.XmlListModel 2.0
 import "awesome.js" as Awesome
 
-ApplicationWindow {
+ApplicationWindow
+{
     visible: true
     width: 640
     height: 480
     title: qsTr("Font Awesome")
     id: appWrap
 
-    FontLoader {
+    FontLoader
+    {
         id: loader
         source: "fonts/fontawesome.ttf"
     }
 
-    XmlListModel{
+    XmlListModel
+    {
         id: awesomeModel
         source: "list.xml"
         query: "/fontawesome/item"
-        XmlRole {name: "value";query: "value/string()"}
+        XmlRole { name: "value"; query: "value/string()" }
     }
 
-    Rectangle{
+    Rectangle
+    {
         id: mainView
         color: "white"
         width: parent.width
         height: parent.height
 
-        GridView{
+        GridView
+        {
             anchors.fill: parent
             cellHeight: 70
             cellWidth:  150
             model: awesomeModel
             focus: true
-            delegate: Item {
+
+            delegate: Item
+            {
                 height: parent.height
                 width: 150
 
-                Text {
+                Text
+                {
                     id: awesome
                     text: loader.status == FontLoader.Ready ? Awesome.awesome[value] : 'Not loaded'
                     color: "black"
@@ -48,12 +56,15 @@ ApplicationWindow {
                     font.family: loader.name
                 }
 
-                Rectangle{
+                Rectangle
+                {
                     id: valueBackground
                     height: 20
                     width: 150
                     anchors.top: awesome.bottom
-                    Text {
+
+                    Text
+                    {
                         id: awesomeValue
                         text: loader.status == FontLoader.Ready ? value : 'Not loaded'
                         color: "#000"
