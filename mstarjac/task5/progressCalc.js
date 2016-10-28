@@ -1,5 +1,6 @@
 
-function getStart(start){
+function getStart(start)
+{
     var startHours = start.split(':')[0];
     var startMinutes = start.split(':')[1];
 
@@ -10,7 +11,8 @@ function getStart(start){
     return st.getTime()
 }
 
-function getEnd(end){
+function getEnd(end)
+{
     var endHours = end.split(':')[0];
     var endMinutes = end.split(':')[1];
 
