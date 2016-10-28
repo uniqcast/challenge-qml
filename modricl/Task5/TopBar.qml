@@ -3,20 +3,24 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import "ionicons.js" as Ionicons
 
-ToolBar {
+ToolBar
+{
     id: topBar
     height: root.height * 0.08
-    background: Rectangle {
+    background: Rectangle
+    {
         color: "#000000"
     }
 
     FontLoader { id: ioniconsFont; source: "ionicons.ttf" }
 
-    ToolButton {
+    ToolButton
+    {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: parent.width * 0.01
-        contentItem: Text {
+        contentItem: Text
+        {
             id: nameText
             color: "#ffffff"
             text: "Task 5"
@@ -24,39 +28,46 @@ ToolBar {
         }
     }
 
-    ToolButton {
+    ToolButton
+    {
         id: searchButton
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: backButton.left
         anchors.rightMargin: parent.width * 0.02
-        contentItem: Text {
+        contentItem: Text
+        {
             color: "#ffffff"
             font.family: "Ionicons"
             text: Ionicons.img['android-search']
             font.pixelSize: topBar.height * 0.5
         }
-        onClicked: {
+        onClicked:
+        {
             stackView.push(newView)
         }
     }
 
-    ToolButton {
+    ToolButton
+    {
         id: backButton
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: topBarSeparator.left
         anchors.rightMargin: parent.width * 0.01
-        contentItem: Text {
+        contentItem: Text
+        {
             color: "#ffffff"
             font.family: "Ionicons"
             text: Ionicons.img['android-arrow-back']
             font.pixelSize: topBar.height * 0.5
         }
-        onClicked: {
+        onClicked:
+        {
             Qt.quit()
         }
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: topBarSeparator
         height: parent.height * 0.7
         width: 1
@@ -66,7 +77,8 @@ ToolBar {
         color: "#454545"
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: clock
         width: parent.height
         height: parent.height * 0.5
@@ -75,7 +87,8 @@ ToolBar {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
 
-        Text {
+        Text
+        {
             id: hoursText
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
@@ -84,7 +97,8 @@ ToolBar {
             font.pixelSize: parent.height
         }
 
-        Rectangle {
+        Rectangle
+        {
             id: minutesContainer
             height: parent.height
             width: parent.height
@@ -93,7 +107,8 @@ ToolBar {
             anchors.leftMargin: hoursText.width * 0.1
             color: "transparent"
 
-            Text {
+            Text
+            {
                 id: minutesText
                 anchors.top: parent.top
                 color: "#ffffff"
@@ -101,7 +116,8 @@ ToolBar {
                 text: minutes
             }
 
-            Rectangle {
+            Rectangle
+            {
                 width: minutesText.width
                 height: parent.height * 0.07
                 anchors.bottom: parent.bottom
@@ -111,10 +127,13 @@ ToolBar {
         }
     }
 
-    states: [
-        State {
+    states:
+    [
+        State
+        {
             name: "expanded"; when: videoArea.expanded
-            PropertyChanges {
+            PropertyChanges
+            {
                 target: topBar
                 height: 0
                 visible: false

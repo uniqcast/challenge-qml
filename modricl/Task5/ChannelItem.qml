@@ -3,7 +3,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import "ionicons.js" as Ionicons
 
-Rectangle {
+Rectangle
+{
     id: channelItem
     width: parent.width
     height: width / 5
@@ -16,7 +17,8 @@ Rectangle {
     property string startTime: started
     property string endTime: ended
 
-    Rectangle {
+    Rectangle
+    {
         id: itemSeparator
         width: parent.width
         height: 1
@@ -25,12 +27,14 @@ Rectangle {
         z: 1
     }
 
-    Item {
+    Item
+    {
         id: logoContainer
         width: parent.height
         height: parent.height
 
-        Image {
+        Image
+        {
             id: channelLogo
             height: parent.height * 0.7
             width: parent.width * 0.7
@@ -40,7 +44,8 @@ Rectangle {
         }
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: verticalSeparator
         height: parent.width
         width: 1
@@ -48,14 +53,16 @@ Rectangle {
         color: "#454545"
     }
 
-    Item {
+    Item
+    {
         id: infoContainer
         width: channelItem.width - logoContainer.width
         height: channelItem.height
         anchors.left: logoContainer.right
         anchors.top: channelItem.top
 
-        Text {
+        Text
+        {
             id: nameText
             anchors.left: infoContainer.left
             anchors.leftMargin: 15
@@ -67,7 +74,8 @@ Rectangle {
             text: uid
         }
 
-        Text {
+        Text
+        {
             id: timeText
             anchors.left: infoContainer.left
             anchors.leftMargin: 15
@@ -78,7 +86,8 @@ Rectangle {
             text: started + " - " + ended
         }
 
-        Text {
+        Text
+        {
             id: playChevron
             anchors.verticalCenter: infoContainer.verticalCenter
             anchors.right: infoContainer.right
@@ -90,11 +99,13 @@ Rectangle {
         }
     }
 
-    MouseArea {
+    MouseArea
+    {
         id: mouseArea
         anchors.fill: channelItem
         hoverEnabled: true
-        onClicked: {
+        onClicked:
+        {
             channelListView.currentIndex = index
         }
     }

@@ -1,6 +1,7 @@
 import QtQuick 2.7
 
-Rectangle {
+Rectangle
+{
     id: selectedItem
     border.width: 2
     border.color: "#ffffff"

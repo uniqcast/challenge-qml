@@ -7,7 +7,8 @@ import QtMultimedia 5.5
 import QtGraphicalEffects 1.0
 import "ionicons.js" as Ionicons
 
-ApplicationWindow {
+ApplicationWindow
+{
     visible: true
     id: root
     color: "#292929"
@@ -22,42 +23,51 @@ ApplicationWindow {
     property string minutes: ""
     property date date
 
-    Timer {
-        interval: 100; running: true; repeat: true;
-        onTriggered: {
+    Timer
+    {
+        interval: 100; running: true; repeat: true
+        onTriggered:
+        {
             date = new Date()
             hours = date.getHours()
             minutes = date.getMinutes()
-            if (hours < 10) {hours = "0" + hours}
-            if (minutes < 10) {minutes = "0" + minutes}
+            if (hours < 10) { hours = "0" + hours }
+            if (minutes < 10) { minutes = "0" + minutes }
         }
     }
 
     property bool hideProperty: true
 
-    Timer {
+    Timer
+    {
         id: buttonTimer
         interval: 5000
-        onTriggered: {
+        onTriggered:
+        {
             hideProperty = false
         }
     }
 
-    StackView {
+    StackView
+    {
         id: stackView
         focus: true
         initialItem: gridView
         anchors.fill: parent
 
-        Item {
+        Item
+        {
             id: newView
-            Rectangle {
+
+            Rectangle
+            {
                 anchors.fill: parent
                 color: "#0000ff"
             }
         }
 
-        GridLayout {
+        GridLayout
+        {
             id: gridView
             anchors.fill: parent
             columnSpacing: 0
@@ -65,7 +75,8 @@ ApplicationWindow {
             flow: root.width > root.height ? GridLayout.LeftToRight : GridLayout.TopToBottom
             LayoutMirroring.enabled: true
 
-            Rectangle {
+            Rectangle
+            {
                 id: videoArea
                 Layout.fillWidth: true
                 Layout.preferredHeight: (root.width / 16) * 9
@@ -74,19 +85,22 @@ ApplicationWindow {
 
                 property bool expanded: false
 
-                MediaPlayer {
+                MediaPlayer
+                {
                     id: mediaplayer
                     autoPlay: true
                 }
 
-                VideoOutput {
+                VideoOutput
+                {
                     id: videoOutput
                     anchors.fill: parent
                     fillMode: VideoOutput.PreserveAspectFit
                     source: mediaplayer
                 }
 
-                ProgressBar {
+                ProgressBar
+                {
                     id: progressBar
                     visible: hideProperty
                     height: root.height * 0.01
@@ -98,21 +112,25 @@ ApplicationWindow {
                     from: formatTime(channelListView.currentItem ? channelListView.currentItem.startTime : "")
                     to:  formatTime(channelListView.currentItem ? channelListView.currentItem.endTime : "")
                     value: date.getTime();
-                    background: Rectangle {
+                    background: Rectangle
+                    {
                         anchors.fill: parent
                         color: "#efefef"
                     }
-                    contentItem: Item {
+                    contentItem: Item
+                    {
                         anchors.fill: parent
 
-                        Rectangle {
+                        Rectangle
+                        {
                             width: progressBar.visualPosition * progressBar.width
                             height: parent.height
                             color: "#ff0000"
                         }
                     }
 
-                    Text {
+                    Text
+                    {
                         id: start
                         visible: hideProperty
                         anchors.left: parent.left
@@ -125,7 +143,8 @@ ApplicationWindow {
                         text: channelListView.currentItem ? channelListView.currentItem.startTime : ""
                     }
 
-                    Text {
+                    Text
+                    {
                         id: end
                         visible: hideProperty
                         anchors.right: parent.right
@@ -138,7 +157,8 @@ ApplicationWindow {
                         text: channelListView.currentItem ? channelListView.currentItem.endTime : ""
                     }
 
-                    Rectangle {
+                    Rectangle
+                    {
                         width: progressBar.height * 2
                         height: width
                         anchors.horizontalCenter: progressBar.left
@@ -149,7 +169,8 @@ ApplicationWindow {
                     }
                 }
 
-                DropShadow {
+                DropShadow
+                {
                     visible: root.width < root.height ? true : false
                     anchors.fill: videoArea
                     horizontalOffset: 0
@@ -162,20 +183,23 @@ ApplicationWindow {
                     z: -1
                 }
 
-                RowLayout {
+                RowLayout
+                {
                     id: mediaButtonContainer
                     width: parent.width * 0.3
                     anchors.centerIn: parent
                     z: 1
 
-                    Button {
+                    Button
+                    {
                         id: replayButton
                         visible: hideProperty
                         width: parent.width / 3
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                         background: Item {}
-                        contentItem: Text {
+                        contentItem: Text
+                        {
                             color: "#ffffff"
                             font.family: "Ionicons"
                             text: Ionicons.img['refresh']
@@ -185,10 +209,12 @@ ApplicationWindow {
                             horizontalAlignment: Text.AlignHCenter
                         }
 
-                        MouseArea {
+                        MouseArea
+                        {
                             preventStealing: true
                             anchors.fill: parent
-                            onClicked: {
+                            onClicked:
+                            {
                                 mediaplayer.seek(0)
                             }
                         }
@@ -201,7 +227,8 @@ ApplicationWindow {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         background: Item {}
-                        contentItem: Text {
+                        contentItem: Text
+                        {
                             color: "#ffffff"
                             font.family: "Ionicons"
                             text: mediaplayer.playbackState == 1 ? Ionicons.img['pause'] : Ionicons.img['play']
@@ -211,21 +238,24 @@ ApplicationWindow {
                             horizontalAlignment: Text.AlignHCenter
                         }
 
-                        MouseArea {
+                        MouseArea
+                        {
                             preventStealing: true
                             anchors.fill: parent
                             onClicked: mediaplayer.playbackState == MediaPlayer.PlayingState ? mediaplayer.pause() : mediaplayer.play()
                         }
                     }
 
-                    Button {
+                    Button
+                    {
                         id: stopButton
                         visible: hideProperty
                         width: parent.width / 3
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         background: Item {}
-                        contentItem: Text {
+                        contentItem: Text
+                        {
                             color: "#ffffff"
                             font.family: "Ionicons"
                             text: Ionicons.img['stop']
@@ -235,18 +265,20 @@ ApplicationWindow {
                             horizontalAlignment: Text.AlignHCenter
                         }
 
-                        MouseArea {
+                        MouseArea
+                        {
                             preventStealing: true
                             anchors.fill: parent
-                            onClicked: {
-
+                            onClicked:
+                            {
                                 mediaplayer.stop()
                             }
                         }
                     }
                 }
 
-                Text {
+                Text
+                {
                     id: videoInformation
                     visible: hideProperty
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -260,7 +292,8 @@ ApplicationWindow {
 
                 }
 
-                Button {
+                Button
+                {
                     id: expandButton
                     visible: hideProperty
                     anchors.top: videoArea.top
@@ -269,7 +302,8 @@ ApplicationWindow {
                     anchors.rightMargin: videoArea.height * 0.05
                     z: 1
                     background: Item {}
-                    contentItem: Text {
+                    contentItem: Text
+                    {
                         color: "#ffffff"
                         font.family: "Ionicons"
                         text: videoArea.expanded == true ? Ionicons.img['android-contract'] : Ionicons.img['android-expand']
@@ -278,10 +312,12 @@ ApplicationWindow {
                         styleColor: "#000000"
                     }
 
-                    MouseArea {
+                    MouseArea
+                    {
                         preventStealing: true
                         anchors.fill: parent
-                        onClicked: {
+                        onClicked:
+                        {
                             videoArea.expanded = !videoArea.expanded
                         }
                     }
@@ -290,18 +326,21 @@ ApplicationWindow {
                 MouseArea {
                     preventStealing: true
                     anchors.fill: parent
-                    onClicked: {
+                    onClicked:
+                    {
                         hideProperty = true
                         buttonTimer.restart()
                     }
                 }
             }
 
-            Rectangle {
+            Rectangle
+            {
                 id: channelList
                 Layout.fillHeight: true
 
-                ListView {
+                ListView
+                {
                     id: channelListView
                     anchors.fill: parent
                     model: xmlModel
@@ -313,7 +352,8 @@ ApplicationWindow {
                     highlightMoveDuration: 100
                     cacheBuffer: 3
                     highlight: SelectedItem {}
-                    onCurrentItemChanged: {
+                    onCurrentItemChanged:
+                    {
                         mediaplayer.source = channelListView.currentItem.channelUrl
                         hideProperty = true
                         buttonTimer.restart()
@@ -321,36 +361,45 @@ ApplicationWindow {
                 }
             }
 
-            states: [
-                State {
+            states:
+            [
+                State
+                {
                     name: "expanded"; when: videoArea.expanded
-                    PropertyChanges {
+                    PropertyChanges
+                    {
                         target: videoArea
                         width: root.width
                         height: root.height
                         anchors.centerIn: parent
                     }
-                    PropertyChanges {
+                    PropertyChanges
+                    {
                         target: channelList
                         visible: false
                     }
                 },
-                State {
+                State
+                {
                     name: "landscape"; when: (root.width > root.height)
-                    PropertyChanges {
+                    PropertyChanges
+                    {
                         target: channelList
                         Layout.preferredWidth: parent.width * 0.35
                         Layout.maximumWidth: 700
                         Layout.minimumWidth: 300
                     }
-                    PropertyChanges {
+                    PropertyChanges
+                    {
                         target: videoArea
                         Layout.fillHeight: true
                     }
                 },
-                State {
+                State
+                {
                     name: "portrait"; when: (root.width < root.height)
-                    PropertyChanges {
+                    PropertyChanges
+                    {
                         target: channelList
                         Layout.fillWidth: true
                     }
@@ -359,8 +408,8 @@ ApplicationWindow {
         }
     }
 
-
-    function formatTime(time){
+    function formatTime(time)
+    {
         var formatHours = time.split(':')[0];
         var formatMinutes = time.split(':')[1];
 
@@ -371,7 +420,8 @@ ApplicationWindow {
         return ft.getTime()
     }
 
-    XmlListModel {
+    XmlListModel
+    {
         id: xmlModel
         source: "channels.xml"
         query: "/channels/channel"
