@@ -1,21 +1,24 @@
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
 
-Rectangle {
+Rectangle
+{
     id: movieItem
-    width: (movieListView.width / (movieListView.width > 300 ? 5 : 3)) - movieListView.spacing
+    width: ( movieListView.width / ( movieListView.width > 300 ? 5 : 3 ) ) - movieListView.spacing
     height: imageItem.height
     scale: ListView.isCurrentItem ? 1 : 0.9
     Behavior on scale { NumberAnimation { duration: 200 } }
 
-    Image {
+    Image
+    {
         id: imageItem
         width: movieItem.width
         fillMode: Image.PreserveAspectFit
         source: imagePath
     }
 
-    Text {
+    Text
+    {
         id: nameText
         anchors.top: imageItem.bottom
         anchors.topMargin: movieItem.width / 35
@@ -24,9 +27,9 @@ Rectangle {
         text: movieName
     }
 
-    Text {
+    Text
+    {
         id: yearText
-
         anchors.top: nameText.bottom
         anchors.topMargin: movieItem.width / 50
         font.pixelSize: movieItem.width / 15
@@ -35,7 +38,8 @@ Rectangle {
     }
 
 
-    DropShadow {
+    DropShadow
+    {
         id: shadowItem
         anchors.fill: imageItem
         horizontalOffset: movieItem.width / 100
@@ -46,7 +50,8 @@ Rectangle {
         source: imageItem
     }
 
-    Text {
+    Text
+    {
         id: ratingText
         visible: movieItem.focus ? true : false
         anchors.centerIn: parent
@@ -57,11 +62,13 @@ Rectangle {
         text: movieRating
     }
 
-    MouseArea {
+    MouseArea
+    {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: {
+        onEntered:
+        {
             movieListView.currentIndex = index
         }
     }

@@ -3,7 +3,8 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.XmlListModel 2.0
 
-Window {
+Window
+{
     id: root
     visible: true
     height: Screen.height
@@ -11,11 +12,13 @@ Window {
     visibility: "FullScreen"
     color: "#171717"
 
-    ColumnLayout {
+    ColumnLayout
+    {
         width: parent.width * 0.95
         anchors.centerIn: parent
 
-        ListView {
+        ListView
+        {
             id: movieListView
             Layout.alignment: Qt.AlignCenter
             Layout.preferredHeight: root.height * 0.7
@@ -30,7 +33,8 @@ Window {
             cacheBuffer: 3
         }
 
-        XmlListModel {
+        XmlListModel
+        {
             id: xmlModel
             source: "movies.xml"
             query: "/root/movie"
