@@ -2,10 +2,6 @@ import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.XmlListModel 2.0
 
-/*
-brzina skrolanja
-*/
-
 Window {
     id: root
     visible: true
@@ -13,10 +9,6 @@ Window {
     width: 1000
     minimumHeight: 400
     minimumWidth: 250
-
-
-
-
     title: qsTr("Task 2")
     color: "#000"
 
