@@ -2,8 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
-        <file>doge.qml</file>
-        <file>movieModel</file>
         <file>images/hackers.jpg</file>
         <file>images/master.jpg</file>
         <file>images/matrix.jpg</file>
