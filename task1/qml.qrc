@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>images/hackers.jpg</file>
+        <file>images/master.jpg</file>
+        <file>images/matrix.jpg</file>
+        <file>images/mononoke.jpg</file>
+        <file>images/pulp.jpg</file>
+    </qresource>
+</RCC>
