@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<movieModel>
+    <movie>
+        <name>Hackers</name>
+        <year>1995</year>
+        <rating>6.2/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BODg0NjQ5ODQ3OF5BMl5BanBnXkFtZTcwNjU4MjkzNA@@._V1_SY1000_CR0,0,666,1000_AL_.jpg</image>
+    </movie>
+    <movie>
+        <name>Master and Commander: The Far Side of the World</name>
+        <year>2003</year>
+        <rating>7.4/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BMjA5NjYyMDM5NV5BMl5BanBnXkFtZTYwOTU5MDY2._V1_.jpg</image>
+    </movie>
+    <movie>
+        <name>Princess Mononoke</name>
+        <year>1997</year>
+        <rating>8.4/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BMTVlNWM4NTAtNDQxYi00YWU5LWIwM2MtZmVjYWFmODZiODE5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,707,1000_AL_.jpg</image>
+    </movie>
+    <movie>
+        <name>Matrix</name>
+        <year>1999</year>
+        <rating>8.7/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg</image>
+    </movie>
+    <movie>
+        <name>Pulp Fiction</name>
+        <year>1994</year>
+        <rating>8.9/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_SY1000_CR0,0,673,1000_AL_.jpg</image>
+    </movie>
+    <movie>
+        <name>13 Assassins</name>
+        <year>2010</year>
+        <rating>7.6/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BODg3MTYwODY3MF5BMl5BanBnXkFtZTcwMDk2MzYwNQ@@._V1_.jpg</image>
+    </movie>
+    <movie>
+        <name>Léon: The Professional</name>
+        <year>1994</year>
+        <rating>8.6/10</rating>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BZDAwYTlhMDEtNTg0OS00NDY2LWJjOWItNWY3YTZkM2UxYzUzXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_CR0,0,710,1000_AL_.jpg</image>
+    </movie>
+</movieModel>
