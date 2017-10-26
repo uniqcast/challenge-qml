@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>channels.xml</file>
+        <file>images/pause.svg</file>
+        <file>images/play.svg</file>
+        <file>images/contract.svg</file>
+        <file>images/expand.svg</file>
+    </qresource>
+</RCC>
