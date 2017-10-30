@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>channels.xml</file>
+        <file>images/pause.svg</file>
+        <file>images/play.svg</file>
+        <file>images/contract.svg</file>
+        <file>images/expand.svg</file>
+        <file>logos/logo1.png</file>
+        <file>logos/logo2.png</file>
+        <file>logos/logo3.png</file>
+        <file>logos/logo4.png</file>
+        <file>logos/logo5.png</file>
+        <file>logos/logo6.png</file>
+        <file>logos/logo7.png</file>
+        <file>images/rightArrow.svg</file>
+        <file>images/replay.svg</file>
+        <file>images/stop.svg</file>
+        <file>images/back.svg</file>
+        <file>images/search.svg</file>
+        <file>page2.qml</file>
+        <file>seekConverter.js</file>
+    </qresource>
+</RCC>
