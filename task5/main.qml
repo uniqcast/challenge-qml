@@ -91,8 +91,10 @@ ApplicationWindow
                 onTriggered:
                 {
                     time.set()
-                    if(player.status == 6)
-                    SeekConverter.getPosition(movieXml.get(view.currentIndex).start, movieXml.get(view.currentIndex).end)
+                    if(player.status == 6 || player.status == 5)
+                    {
+                        SeekConverter.getPosition(movieXml.get(view.currentIndex).start, movieXml.get(view.currentIndex).end)
+                    } else progress.width == 0
                 }
                 }
         }
