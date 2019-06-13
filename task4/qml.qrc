@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>channels.xml</file>
+        <file>icons/_ionicons_svg_md-pause.svg</file>
+        <file>icons/_ionicons_svg_md-play.svg</file>
+        <file>main.cpp</file>
+        <file>icons/_ionicons_svg_md-contract.svg</file>
+        <file>icons/_ionicons_svg_md-expand.svg</file>
+    </qresource>
+</RCC>
