@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <movies>
+
+        <item>
+            <source>images/pikachu_poster.jpg</source>
+            <name>Detective Pikachu</name>
+            <release>2019</release>
+            <rating>7/10</rating>
+        </item>
+		
+		<item>
+            <source>images/phoenix_poster.jpg</source>
+            <name>X-Men: Dark Phoenix</name>
+            <release>2019</release>
+            <rating>7.5/10</rating>
+        </item>
+		
+		<item>
+            <source>images/mib_poster.jpg</source>
+            <name>Men In Black International</name>
+            <release>2019</release>
+            <rating>9/10</rating>
+        </item>
+		
+		<item>
+            <source>images/spiderman_poster.jpg</source>
+            <name>Spider-Man: Far From Home</name>
+            <release>2019</release>
+            <rating>10/10</rating>
+        </item>
+		
+		<item>
+            <source>images/wick3_poster.jpg</source>
+            <name>John Wick 3</name>
+            <release>2019</release>
+            <rating>8/10</rating>
+        </item>
+
+    </movies>
+</rss>

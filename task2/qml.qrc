@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/mib_poster.jpg</file>
+        <file>images/phoenix_poster.jpg</file>
+        <file>images/pikachu_poster.jpg</file>
+        <file>images/spiderman_poster.jpg</file>
+        <file>main.cpp</file>
+        <file>images/wick3_poster.jpg</file>
+        <file>movies.xml</file>
+    </qresource>
+</RCC>
