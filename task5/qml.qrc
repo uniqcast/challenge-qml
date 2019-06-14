@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>channels.xml</file>
+        <file>main.cpp</file>
+        <file>logos/logo1.png</file>
+        <file>logos/logo2.png</file>
+        <file>logos/logo3.png</file>
+        <file>logos/logo4.png</file>
+        <file>logos/logo5.png</file>
+        <file>logos/logo6.png</file>
+        <file>logos/logo7.png</file>
+        <file>icons/_ionicons_svg_md-contract.svg</file>
+        <file>icons/_ionicons_svg_md-expand.svg</file>
+        <file>icons/_ionicons_svg_md-pause.svg</file>
+        <file>icons/_ionicons_svg_md-play.svg</file>
+        <file>icons/_ionicons_svg_md-refresh.svg</file>
+        <file>icons/_ionicons_svg_md-square.svg</file>
+        <file>icons/_ionicons_svg_md-undo.svg</file>
+        <file>icons/_ionicons_svg_md-arrow-dropright.png</file>
+        <file>icons/_ionicons_svg_md-search.png</file>
+        <file>icons/_ionicons_svg_md-undo.png</file>
+        <file>searchEmptyScreen.qml</file>
+    </qresource>
+</RCC>
