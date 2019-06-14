@@ -28,7 +28,7 @@ ApplicationWindow {
         XmlRole { name: "url"; query: "url/string()" }
     }
 
-    // Toolbar time timer
+    // Toolbar clock timer
     Timer {
         interval: 60000
         repeat: true
@@ -37,7 +37,7 @@ ApplicationWindow {
     }
 
     header: ToolBar {
-        id: topbar
+        id: toolbarID
         height: root.height / 20
 
         Rectangle {
@@ -61,8 +61,8 @@ ApplicationWindow {
                         anchors.right: backButton.left
                         anchors.rightMargin: width / 2
                         background.visible: false
-                        width: topbar.height
-                        height: topbar.height
+                        width: toolbarID.height
+                        height: toolbarID.height
                         anchors.verticalCenter: parent.verticalCenter
                         Image{
                             anchors.fill: parent
@@ -82,8 +82,8 @@ ApplicationWindow {
                         anchors.right: separator.left
                         anchors.rightMargin: width / 2
                         background.visible: false
-                        width: topbar.height
-                        height: topbar.height
+                        width: toolbarID.height
+                        height: toolbarID.height
                         anchors.verticalCenter: parent.verticalCenter
                         Image{
                             anchors.fill: parent
@@ -95,7 +95,7 @@ ApplicationWindow {
                     // separator
                     ToolSeparator {
                         id: separator
-                        height: topbar.height
+                        height: toolbarID.height
                         anchors.right: timeText.left
                         anchors.verticalCenter: parent.verticalCenter
                     }
@@ -113,7 +113,6 @@ ApplicationWindow {
         }
     } // ToolBar
 
-    // states
     Item {
         states: [
             State {
@@ -122,13 +121,13 @@ ApplicationWindow {
                 PropertyChanges {
                     target: lista
                     Layout.row: 1
-                    Layout.preferredHeight: root.height * ( 2 / 3 )
+                    Layout.preferredHeight: root.height * ( 2 / 3 ) - toolbarID.height
                     Layout.preferredWidth: root.width
                 }
                 PropertyChanges {
                     target: videoRectangle
                     Layout.row: 0
-                    Layout.preferredHeight: root.height / 3
+                    Layout.preferredHeight: ( root.height / 3 ) - toolbarID.height
                     Layout.preferredWidth: root.width
                 }
             },
@@ -138,13 +137,13 @@ ApplicationWindow {
                 PropertyChanges {
                     target: lista
                     Layout.column: 0
-                    Layout.preferredHeight: root.height
+                    Layout.preferredHeight: root.height - toolbarID.height
                     Layout.preferredWidth: root.width / 3
                 }
                 PropertyChanges {
                     target: videoRectangle
                     Layout.column: 1
-                    Layout.preferredHeight: root.height
+                    Layout.preferredHeight: root.height - toolbarID.height
                     Layout.preferredWidth: root.width * ( 2 / 3 )
                 }
             },
@@ -157,12 +156,12 @@ ApplicationWindow {
                     height: root.height
                 }
                 PropertyChanges {
-                    target: topbar
+                    target: toolbarID
                     visible: false
                 }
             }
         ]
-    }
+    } // item, states
 
     GridLayout {
         anchors.fill: parent
@@ -181,6 +180,8 @@ ApplicationWindow {
                 onCurrentItemChanged: {
                     channelInfoID.text = xmlModel.get(currentIndex).uid
                     player.source = xmlModel.get(currentIndex).url
+                    progressBarID.from = parseInt(xmlModel.get(currentIndex).start)
+                    progressBarID.to = xmlModel.get(currentIndex).end
                 }
 
                 width: parent.width
@@ -215,8 +216,8 @@ ApplicationWindow {
 
                             width: lista.width - ( 1 / 5 * lista.width )
                             height: root.height / 10
-
                             anchors.right: parent.right
+
                             Text {
                                 text: model.uid
                                 color: channelOption.focus ? "red" : "white"
@@ -225,6 +226,7 @@ ApplicationWindow {
                                 anchors.verticalCenterOffset: -5
                                 anchors.margins: 10
                                 font.pixelSize: 24
+
                                 Text {
                                     anchors.top: parent.bottom
                                     text: model.start + " - " + model.end
@@ -254,6 +256,7 @@ ApplicationWindow {
                             anchors.left: parent.left
                             border.color: "gray"
                             border.width: 1
+
                             Image{
                                 width: parent.width * 0.8
                                 height: parent.height * 0.8
@@ -264,7 +267,7 @@ ApplicationWindow {
                         }
                     }
             } // ListView
-        } // lista ectangle
+        } // lista rectangle
 
         Rectangle{
             id: videoRectangle
@@ -281,6 +284,7 @@ ApplicationWindow {
                     restartButton.visible = true
                     stopButton.visible = player.playbackState ? true : false
                     channelInfoID.visible = true
+                    progressBarID.visible = true
                     buttonTimer.restart();
                 }
             }
@@ -290,21 +294,6 @@ ApplicationWindow {
                 autoPlay: true
             }
 
-            ProgressBar {
-                id: progressBarID
-                anchors.bottom: videoOutput.bottom
-                width: videoOutput.width
-                height: videoOutput.height / 10
-                from: 5
-                to: 999999
-                z: 99
-                value: player.position
-                background: {
-                    color: "red"
-                    width: width
-                }
-            }
-
             VideoOutput {
                 id: videoOutput
                 source: player
@@ -312,13 +301,28 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectFit
             }
 
+            ProgressBar {
+                id: progressBarID
+                visible: false
+                z: 99
+
+                anchors.bottom: videoOutput.bottom
+                width: videoOutput.width
+                height: videoOutput.height / 8
+
+                value: this.from + player.position
+            }
+
             Text {
                 id: channelInfoID
                 visible: false
-                font.pixelSize: root.height / 35
+
+                font.pixelSize: 24
                 color: "white"
-                anchors.centerIn: videoOutput
-                anchors.verticalCenterOffset: root.height / 10
+
+                anchors.verticalCenter: videoOutput.verticalCenter
+                anchors.verticalCenterOffset: pausePlayButton.height
+                anchors.horizontalCenter: videoOutput.horizontalCenter
             }
 
             Image{
@@ -326,8 +330,8 @@ ApplicationWindow {
                 visible: false
                 source: "/icons/_ionicons_svg_md-pause.svg"
                 anchors.centerIn: videoOutput
-                width: 75
-                height: 75
+                width: 50
+                height: 50
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -344,6 +348,7 @@ ApplicationWindow {
                     }
                 }
             } // image Pause/Play
+
             Image {
                 id: fullscreenButton
                 visible: false
@@ -351,21 +356,22 @@ ApplicationWindow {
                 anchors.top: videoOutput.TopRight
                 anchors.horizontalCenter: videoOutput.right
                 anchors.horizontalCenterOffset: -(height/2)
-                height: 75
-                width: 75
+                height: 50
+                width: 50
                 MouseArea{
                     anchors.fill: parent
                     onClicked: isFullscreen = !isFullscreen
                 }
             } // Image fullscreen
+
             Image {
                 id: restartButton
                 visible: false
                 source: "/icons/_ionicons_svg_md-refresh.svg/"
                 anchors.centerIn: videoOutput
                 anchors.horizontalCenterOffset: -(pausePlayButton.width)
-                height: 75
-                width: 75
+                height: 50
+                width: 50
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -375,14 +381,15 @@ ApplicationWindow {
                     }
                 }
             } // restart button
+
             Image {
                 id: stopButton
                 visible: false
                 source: "/icons/_ionicons_svg_md-square.svg"
                 anchors.centerIn: videoOutput
                 anchors.horizontalCenterOffset: pausePlayButton.width
-                height: 75
-                width: 75
+                height: 50
+                width: 50
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -394,11 +401,11 @@ ApplicationWindow {
                     }
                 }
             } // stop button
+
         } // video rectangle
 
     } // gridLayout
 
-    // button timer
     Timer{
         id: buttonTimer
         interval: 5000
@@ -408,6 +415,7 @@ ApplicationWindow {
             restartButton.visible = false
             stopButton.visible = false
             channelInfoID.visible = false
+            progressBarID.visible = false
         }
     } // button timer
 
