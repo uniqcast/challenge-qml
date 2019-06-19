@@ -16,10 +16,13 @@
         <file>icons/_ionicons_svg_md-play.svg</file>
         <file>icons/_ionicons_svg_md-refresh.svg</file>
         <file>icons/_ionicons_svg_md-square.svg</file>
-        <file>icons/_ionicons_svg_md-undo.svg</file>
         <file>icons/_ionicons_svg_md-arrow-dropright.png</file>
         <file>icons/_ionicons_svg_md-search.png</file>
         <file>icons/_ionicons_svg_md-undo.png</file>
-        <file>searchEmptyScreen.qml</file>
+        <file>emptyScreen.qml</file>
+        <file>progressBarTimes.js</file>
+        <file>ToolBarComponent.qml</file>
+        <file>ChannelListComponent.qml</file>
+        <file>VideoPlayerComponent.qml</file>
     </qresource>
 </RCC>

@@ -5,16 +5,20 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.XmlListModel 2.0
 import QtQuick.Layouts 1.1
 import QtMultimedia 5.0
+import "progressBarTimes.js" as GetTime
 
 ApplicationWindow {
     id: root
     visible: true
+
     width: 1920
     height: 1080
+
     title: qsTr("Task 5")
     color: "black"
 
     property bool isFullscreen: false
+    property var cijeliObjekt: lista.cijeliObjekt
 
     XmlListModel {
         id: xmlModel
@@ -28,91 +32,10 @@ ApplicationWindow {
         XmlRole { name: "url"; query: "url/string()" }
     }
 
-    // Toolbar clock timer
-    Timer {
-        interval: 60000
-        repeat: true
-        running: true
-        onTriggered: timeText.text = Qt.formatTime(new Date(), "hh:mm")
-    }
+    // ToolBar
+    header: ToolBarComponent { id: toolBarID }
 
-    header: ToolBar {
-        id: toolbarID
-        height: root.height / 20
-
-        Rectangle {
-            anchors.fill: parent
-            color: "black"
-                RowLayout {
-                    id: rowLayout
-                    anchors.fill: parent
-                    width: root.width
-                    // Task 5 text
-                    Text {
-                        text: "Task 5"
-                        anchors.left: parent.left
-                        color: "white"
-                        leftPadding: 10
-                        font.pixelSize: parent.height * 0.7
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                    // search button
-                    ToolButton {
-                        anchors.right: backButton.left
-                        anchors.rightMargin: width / 2
-                        background.visible: false
-                        width: toolbarID.height
-                        height: toolbarID.height
-                        anchors.verticalCenter: parent.verticalCenter
-                        Image{
-                            anchors.fill: parent
-                            source: "icons/_ionicons_svg_md-search.png"
-                            fillMode: Image.PreserveAspectFit
-                        }
-                        onClicked: {
-                            loadEmptyScreen.source = "searchEmptyScreen.qml"
-                        }
-                        Loader {
-                            id: loadEmptyScreen
-                        }
-                    }
-                    // back button
-                    ToolButton {
-                        id: backButton
-                        anchors.right: separator.left
-                        anchors.rightMargin: width / 2
-                        background.visible: false
-                        width: toolbarID.height
-                        height: toolbarID.height
-                        anchors.verticalCenter: parent.verticalCenter
-                        Image{
-                            anchors.fill: parent
-                            source: "icons/_ionicons_svg_md-undo.png"
-                            fillMode: Image.PreserveAspectFit
-                        }
-                        onClicked: Qt.quit()
-                    }
-                    // separator
-                    ToolSeparator {
-                        id: separator
-                        height: toolbarID.height
-                        anchors.right: timeText.left
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                    // current time
-                    Text {
-                        id: timeText
-                        text: Qt.formatTime(new Date(), "hh:mm")
-                        anchors.right: parent.right
-                        rightPadding: 10
-                        color: "white"
-                        font.pixelSize: parent.height * 0.7
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-        }
-    } // ToolBar
-
+    // States
     Item {
         states: [
             State {
@@ -121,13 +44,13 @@ ApplicationWindow {
                 PropertyChanges {
                     target: lista
                     Layout.row: 1
-                    Layout.preferredHeight: root.height * ( 2 / 3 ) - toolbarID.height
+                    Layout.preferredHeight: root.height * ( 2 / 3 ) - root.header.height
                     Layout.preferredWidth: root.width
                 }
                 PropertyChanges {
                     target: videoRectangle
                     Layout.row: 0
-                    Layout.preferredHeight: ( root.height / 3 ) - toolbarID.height
+                    Layout.preferredHeight: ( root.height / 3 ) - root.header.height
                     Layout.preferredWidth: root.width
                 }
             },
@@ -137,13 +60,13 @@ ApplicationWindow {
                 PropertyChanges {
                     target: lista
                     Layout.column: 0
-                    Layout.preferredHeight: root.height - toolbarID.height
+                    Layout.preferredHeight: root.height - root.header.height
                     Layout.preferredWidth: root.width / 3
                 }
                 PropertyChanges {
                     target: videoRectangle
                     Layout.column: 1
-                    Layout.preferredHeight: root.height - toolbarID.height
+                    Layout.preferredHeight: root.height - root.header.height
                     Layout.preferredWidth: root.width * ( 2 / 3 )
                 }
             },
@@ -156,267 +79,23 @@ ApplicationWindow {
                     height: root.height
                 }
                 PropertyChanges {
-                    target: toolbarID
+                    target: toolBarID
                     visible: false
                 }
             }
         ]
-    } // item, states
+    }
 
     GridLayout {
         anchors.fill: parent
         flow:  width > height ? GridLayout.LeftToRight : GridLayout.TopToBottom
 
-        Rectangle{
-            id: lista
-            color: "black"
-
-            ListView{
-                id: listViewID
-                focus: true
-                model: xmlModel
-
-                orientation: ListView.Vertical
-                onCurrentItemChanged: {
-                    channelInfoID.text = xmlModel.get(currentIndex).uid
-                    player.source = xmlModel.get(currentIndex).url
-                    progressBarID.from = parseInt(xmlModel.get(currentIndex).start)
-                    progressBarID.to = xmlModel.get(currentIndex).end
-                }
-
-                width: parent.width
-                height: parent.height
-
-                delegate:
-                    Rectangle{
-                        id: channelOption
-                        color: "transparent"
-
-                        width: lista.width
-                        height: root.height / 10
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: listViewID.currentIndex = index
-                        }
-
-                        // border
-                        Rectangle {
-                            color: "transparent"
-                            anchors.fill: parent
-                            z: 99
-                            border.color: channelOption.focus ? "white" : "gray"
-                            border.width: channelOption.focus ? 3 : 1
-                        }
-
-                        // Channel name
-                        Rectangle{
-                            id: channelName
-                            color: "black"
-
-                            width: lista.width - ( 1 / 5 * lista.width )
-                            height: root.height / 10
-                            anchors.right: parent.right
-
-                            Text {
-                                text: model.uid
-                                color: channelOption.focus ? "red" : "white"
-                                anchors.left: parent.left
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.verticalCenterOffset: -5
-                                anchors.margins: 10
-                                font.pixelSize: 24
-
-                                Text {
-                                    anchors.top: parent.bottom
-                                    text: model.start + " - " + model.end
-                                    font.pixelSize: 16
-                                    color: "gray"
-                                }
-                            }
-
-                            Image {
-                                source: "/icons/_ionicons_svg_md-arrow-dropright.png"
-                                anchors.right: parent.right
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: parent.height / 2.5
-                                height: parent.height / 2.5
-                                fillMode: Image.PreserveAspectFit
-                            }
-                        }
-
-                        // Channel icon
-                        Rectangle{
-                            id: channelIcon
-                            color: "black"
-
-                            height: root.height / 10
-                            width: lista.width - channelName.width
-
-                            anchors.left: parent.left
-                            border.color: "gray"
-                            border.width: 1
-
-                            Image{
-                                width: parent.width * 0.8
-                                height: parent.height * 0.8
-                                anchors.centerIn: parent
-                                fillMode: Image.PreserveAspectFit
-                                source: model.icon
-                            }
-                        }
-                    }
-            } // ListView
-        } // lista rectangle
-
-        Rectangle{
+        ChannelListComponent {id: lista}
+        VideoPlayerComponent {
             id: videoRectangle
-            color: "gray"
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    pausePlayButton.visible = true
-                    fullscreenButton.visible = true
-                    restartButton.visible = true
-                    stopButton.visible = player.playbackState ? true : false
-                    channelInfoID.visible = true
-                    progressBarID.visible = true
-                    buttonTimer.restart();
-                }
-            }
-
-            MediaPlayer {
-                id: player
-                autoPlay: true
-            }
-
-            VideoOutput {
-                id: videoOutput
-                source: player
-                anchors.fill: parent
-                fillMode: Image.PreserveAspectFit
-            }
-
-            ProgressBar {
-                id: progressBarID
-                visible: false
-                z: 99
-
-                anchors.bottom: videoOutput.bottom
-                width: videoOutput.width
-                height: videoOutput.height / 8
-
-                value: this.from + player.position
-            }
-
-            Text {
-                id: channelInfoID
-                visible: false
-
-                font.pixelSize: 24
-                color: "white"
-
-                anchors.verticalCenter: videoOutput.verticalCenter
-                anchors.verticalCenterOffset: pausePlayButton.height
-                anchors.horizontalCenter: videoOutput.horizontalCenter
-            }
-
-            Image{
-                id: pausePlayButton
-                visible: false
-                source: "/icons/_ionicons_svg_md-pause.svg"
-                anchors.centerIn: videoOutput
-                width: 50
-                height: 50
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                            if(player.playbackState){
-                                player.stop()
-                                stopButton.visible = false
-                                parent.source = "/icons/_ionicons_svg_md-play.svg"
-                            }
-                            else{
-                                player.play()
-                                stopButton.visible = true
-                                parent.source = "/icons/_ionicons_svg_md-pause.svg"
-                            }
-                    }
-                }
-            } // image Pause/Play
-
-            Image {
-                id: fullscreenButton
-                visible: false
-                source: isFullscreen ? "/icons/_ionicons_svg_md-contract.svg" : "/icons/_ionicons_svg_md-expand.svg"
-                anchors.top: videoOutput.TopRight
-                anchors.horizontalCenter: videoOutput.right
-                anchors.horizontalCenterOffset: -(height/2)
-                height: 50
-                width: 50
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: isFullscreen = !isFullscreen
-                }
-            } // Image fullscreen
-
-            Image {
-                id: restartButton
-                visible: false
-                source: "/icons/_ionicons_svg_md-refresh.svg/"
-                anchors.centerIn: videoOutput
-                anchors.horizontalCenterOffset: -(pausePlayButton.width)
-                height: 50
-                width: 50
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        player.stop()
-                        player.seek(0)
-                        player.play()
-                    }
-                }
-            } // restart button
-
-            Image {
-                id: stopButton
-                visible: false
-                source: "/icons/_ionicons_svg_md-square.svg"
-                anchors.centerIn: videoOutput
-                anchors.horizontalCenterOffset: pausePlayButton.width
-                height: 50
-                width: 50
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        if(player.playbackState){
-                            player.stop()
-                            pausePlayButton.source = "/icons/_ionicons_svg_md-play.svg"
-                            parent.visible = false
-                        }
-                    }
-                }
-            } // stop button
-
-        } // video rectangle
-
-    } // gridLayout
-
-    Timer{
-        id: buttonTimer
-        interval: 5000
-        onTriggered: {
-            pausePlayButton.visible = false
-            fullscreenButton.visible = false
-            restartButton.visible = false
-            stopButton.visible = false
-            channelInfoID.visible = false
-            progressBarID.visible = false
+            cijeliObjekt: root.cijeliObjekt
         }
-    } // button timer
+
+    }   // gridLayout
 
 } // appWindow

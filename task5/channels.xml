@@ -23,7 +23,7 @@
     <channel>
         <uid>Johnny Bravo</uid>
         <icon>logos/logo4</icon>
-        <start>10:30</start>
+        <start>11:30</start>
         <end>18:20</end>
         <url>http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes-audio=65000-video=1340000.m3u8</url>
     </channel>
