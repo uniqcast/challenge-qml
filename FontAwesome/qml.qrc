@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>awesome.js</file>
-        <file>fonts/fontawesome.ttf</file>
-        <file>list.xml</file>
-    </qresource>
-</RCC>

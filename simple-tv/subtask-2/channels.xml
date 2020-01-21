@@ -1,168 +1,168 @@
 <channels>
     <channel>
         <uid>Here Goes Longer Name</uid>
-        <icon>logos/logo1</icon>
+        <icon>logos/logo-1</icon>
         <start>9:00</start>
         <end>17:00</end>
         <url>http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/0640_vod.m3u8</url>
     </channel>
     <channel>
         <uid>The Game of Thrones</uid>
-        <icon>logos/logo2</icon>
+        <icon>logos/logo-2</icon>
         <start>9:30</start>
         <end>17:50</end>
         <url>http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8</url>
     </channel>
     <channel>
         <uid>Dinner for three</uid>
-        <icon>logos/logo3</icon>
+        <icon>logos/logo-3</icon>
         <start>9:30</start>
         <end>17:20</end>
         <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Johnny Bravo</uid>
-        <icon>logos/logo4</icon>
+        <icon>logos/logo-4</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes-audio=65000-video=1340000.m3u8</url>
     </channel>
     <channel>
         <uid>Antman</uid>
-        <icon>logos/logo5</icon>
+        <icon>logos/logo-5</icon>
         <start>9:30</start>
         <end>19:20</end>
         <url>http://playertest.longtailvideo.com/adaptive/wowzaid3/chunklist_w249832652.m3u8</url>
     </channel>
     <channel>
         <uid>Batman</uid>
-        <icon>logos/logo6</icon>
+        <icon>logos/logo-6</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>https://dl.dropboxusercontent.com/u/7303267/website/m3u8/Gear3/prog_index.m3u8</url>
     </channel>
     <channel>
         <uid>UEFA Champions League</uid>
-        <icon>logos/logo7</icon>
+        <icon>logos/logo-7</icon>
         <start>9:30</start>
         <end>17:20</end>
         <url>http://sample.vodobox.net/skate_phantom_flex_4k/veryhigh/skate_phantom_flex_4k_1056_480p.m3u8</url>
     </channel>
     <channel>
         <uid>Here Goes Longer Name</uid>
-        <icon>logos/logo1</icon>
+        <icon>logos/logo-1</icon>
         <start>9:30</start>
         <end>17:00</end>
         <url>http://cdn3.viblast.com/streams/hls/airshow/playlist.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 9</uid>
-        <icon>logos/logo2</icon>
+        <icon>logos/logo-2</icon>
         <start>9:30</start>
         <end>17:50</end>
         <url>http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/0640_vod.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 10</uid>
-        <icon>logos/logo3</icon>
+        <icon>logos/logo-3</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 11</uid>
-        <icon>logos/logo4</icon>
+        <icon>logos/logo-4</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 12</uid>
-        <icon>logos/logo5</icon>
+        <icon>logos/logo-5</icon>
         <start>9:30</start>
         <end>17:50</end>
         <url>http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes-audio=65000-video=1340000.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 13</uid>
-        <icon>logos/logo6</icon>
+        <icon>logos/logo-6</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://playertest.longtailvideo.com/adaptive/wowzaid3/chunklist_w249832652.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 14</uid>
-        <icon>logos/logo7</icon>
+        <icon>logos/logo-7</icon>
         <start>6:30</start>
         <end>16:55</end>
         <url>https://dl.dropboxusercontent.com/u/7303267/website/m3u8/Gear3/prog_index.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 15</uid>
-        <icon>logos/logo1</icon>
+        <icon>logos/logo-1</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://sample.vodobox.net/skate_phantom_flex_4k/veryhigh/skate_phantom_flex_4k_1056_480p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 16</uid>
-        <icon>logos/logo2</icon>
+        <icon>logos/logo-2</icon>
         <start>6:30</start>
         <end>16:55</end>
         <url>http://cdn3.viblast.com/streams/hls/airshow/playlist.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 17</uid>
-        <icon>logos/logo3</icon>
+        <icon>logos/logo-3</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/0640_vod.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 18</uid>
-        <icon>logos/logo4</icon>
+        <icon>logos/logo-4</icon>
         <start>6:30</start>
         <end>16:55</end>
         <url>http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 19</uid>
-        <icon>logos/logo5</icon>
+        <icon>logos/logo-5</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 20</uid>
-        <icon>logos/logo6</icon>
+        <icon>logos/logo-6</icon>
         <start>6:30</start>
         <end>16:55</end>
         <url>http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes-audio=65000-video=1340000.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 21</uid>
-        <icon>logos/logo7</icon>
+        <icon>logos/logo-7</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://playertest.longtailvideo.com/adaptive/wowzaid3/chunklist_w249832652.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 22</uid>
-        <icon>logos/logo1</icon>
+        <icon>logos/logo-1</icon>
         <start>6:30</start>
         <end>16:55</end>
         <url>http://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 23</uid>
-        <icon>logos/logo2</icon>
+        <icon>logos/logo-2</icon>
         <start>10:30</start>
         <end>18:20</end>
         <url>http://sample.vodobox.net/skate_phantom_flex_4k/veryhigh/skate_phantom_flex_4k_1056_480p.m3u8</url>
     </channel>
     <channel>
         <uid>Channel 24</uid>
-        <icon>logos/logo3</icon>
+        <icon>logos/logo-3</icon>
         <start>9:30</start>
         <end>17:50</end>
         <url>http://cdn3.viblast.com/streams/hls/airshow/playlist.m3u8</url>
