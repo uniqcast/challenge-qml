@@ -27,7 +27,9 @@ There are few things to remember:
 
 ### Prerequisites & Environment
 
--
+* Use latest version of [open source Qt 5](https://www.qt.io/download-open-source)
+* Use QtCreator for development
+* If possible, test solutions on Android devices. Otherwise, only desktop version for desired OS should be implemented.
 
 ### Solutions
 
