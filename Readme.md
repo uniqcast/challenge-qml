@@ -1,6 +1,6 @@
 # Challenge: QML
 
-Tasks and guides that should help you learn [QML](http://doc.qt.io/qt-5/qtqml-index.html)
+Tasks and guides that should help you learn [QML](http://doc.qt.io/qt-5/qtqml-index.html).
 
 ## Tasks
 
@@ -10,10 +10,11 @@ Take your time. We put more focus on quality of code over speed of coding, since
 
 There are few things to remember:
 
-* Communication - if you have an issue, ask.
-* Team - you work with other people, everything you write will at some time be read and need to be changed by someone else.
-* Code - code must be clean, unneeded space and old code in comments should never be upstream.
-* Comments - your code is not self documenting but it doesn't need a comment of every line, describe complex blocks and modules so even a newcomer can understand what was the idea.
+1. **Communication** - if you have an issue, ask.
+2. **Team** - you work with other people, everything you write will at some time be read and changed by someone else.
+3. **Code** - code must be clean, unneeded whitespace and old code in comments should never be upstream.
+4. **Comments** - your code is not self documenting but it doesn't need a comment of every line, describe complex blocks and modules so even a newcomer can understand what was the idea.
+5. **Stability** - write safe code which always expects malformed input and unexpected actions.
 
 ### List of Tasks
 
@@ -27,15 +28,16 @@ There are few things to remember:
 
 ### Prerequisites & Environment
 
-* Use latest version of [open source Qt 5](https://www.qt.io/download-open-source)
-* Use QtCreator for development
+* Use latest version of [open source Qt 5](https://www.qt.io/download-open-source).
+* Use Qt Creator for development and follow guidelines described in the [Qt Creator section](#working-with-qt-creator).
 * If possible, test solutions on Android devices. Otherwise, only desktop version for desired OS should be implemented.
 
 ### Solutions
 
 * Solutions for each task should be placed in a standalone repository.
-    * Each subtask should be placed in it's own directory.
+    * Each subtask should be placed in its own directory.
 * Solutions should work on desktop (Linux, Mac, Windows) and Android devices.
+    * Since video playout is a complicated issue which requires different approaches for different platforms, it's not required that video works properly on every platform.
 
 ### Further Improvements & Tasks
 
@@ -44,6 +46,12 @@ There are few things to remember:
 * Add `.gitignore` to exclude files that should not be upstream.
 * Send pull requests to improve what you think could be better.
 * Write a new task that you think would be useful for people when learning QML.
+
+## Working with Qt Creator
+
+Every task should be a standalone Qt project created from Qt Creator IDE.
+
+To create a new project, click on `File > New File or Project` and select a template `Application > Qt Quick Application Empty`.
 
 ---
 
